@@ -11,12 +11,11 @@ Combining Positional and Optional arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("square", type=int,
                     help="display a square of a given number")
-parser.add_argument("-v", "--verbosity", action="count",
+parser.add_argument("-v", "--verbosity", action="count", default=0,
                     help="increase output verbosity")
 args = parser.parse_args()
-answer = args.square**2
 print("args.verbosity", args.verbosity)
-# bugfix: replace == with >=
+answer = args.square**2
 if args.verbosity >= 2:
     print("the square of {} equals {}".format(args.square, answer))
 elif args.verbosity >= 1:
